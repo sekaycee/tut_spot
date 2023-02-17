@@ -4,58 +4,38 @@ Personally I used the commamd `termux-change-repo`.. to select all available mir
 
 ## Installation Steps
 
-1. Install PostgreSQL
+### `pkg install postgresql`
 
-```
-$ pkg install postgresql
-```
+Install PostgreSQL
 
-2. Create skeleton database
+### `mkdir ~/.pgsql && initdb ~/.pgsql`
 
-```
-$ mkdir ~/.pgsql
-$ initdb ~/.pgsql
-```
-You can change the directory to whatever path you want
+Create skeleton database.
+You can change the directory to a custom path.
 
-3. Start the database server
+### `pg_ctl start -D ~/.pgsql`
 
-```
-$ pg_ctl start -D ~/.pgsql
-```
-I created an alias (optional).. to shorten the command above.
+Start the database server.
+You can create an alias (optional).. to shorten the command above.
 
-4. Stop the database server
+### `pg_ctl stop -D ~/.pgsql`
 
-```
-$ pg_ctl stop -D ~/.pgsql
-```
+Stop the database server.
 Optional alias for this command too.
-It's also needful since I'll running the command often.
+It's also needful.. since You'll probably be running the command often.
 
-5. Create User
+### `createuser --superuser --pwprompt username`
 
-```
-$ createuser --superuser --pwprompt username
-```
-Replace `username` with yours
+Create User.
+Replace `username` with yours.
 
-6. Create your database
+### `createdb dbname`
 
-```
-$ createdb dbname
-```
+Create your database.
 Again replace dbname with yours
 
-7. Initiate your database
+### `psql dbname`
 
-```
-$ psql dbname
-```
-
-8. Once your database is initialized.. you'll see the prompt
-
-```
-dbname=#
-```
+Initiate your database.
+Once your database is initialized.. you'll see the prompt `dbname=#`
 
